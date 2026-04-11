@@ -11,18 +11,18 @@ const createWindow = () => {
         webPreferences: {
             //preload: path.join(__dirname, 'preload.js')
         },
-        autoHideMenuBar: false,//false for debugging (no need to change it anymore because F3 toggles the menu bar since version 0.4.4)
-        width: 512,
-        height: 384,//+ 18,
+        autoHideMenuBar: false,
+        width: 800,
+        height: 512,//+ 18,
         show: false,
-        title: "Vara",
-        resizable: true,//This should probably be false
+        title: "Zara",
+        resizable: true,
         useContentSize: true
     })
 
     win.once('ready-to-show', () => {
         //win.setAlwaysOnTop(true, "normal");
-        win.setFullScreen(true);
+        //win.setFullScreen(true);
         win.show();
     })
 
