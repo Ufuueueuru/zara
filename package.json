@@ -1,0 +1,25 @@
+{
+  "name": "zara",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Ufuueueuru/zara#readme",
+  "bugs": {
+    "url": "https://github.com/Ufuueueuru/zara/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ufuueueuru/zara.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "entry.js",
+  "scripts": {
+	"run": "electron ."
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "electron": "^41.2.0"
+  },
+  "devDependencies": {}
+}
