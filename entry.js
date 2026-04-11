@@ -1,7 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
-const fs = require('fs')
-const yj = require('yieldable-json')
 
 //app.disableHardwareAcceleration()
 
