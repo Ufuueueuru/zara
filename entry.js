@@ -9,9 +9,9 @@ process.env['ELECTRON_ENABLE_LOGGING'] = 'true';
 const createWindow = () => {
     const win = new BrowserWindow({
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            //preload: path.join(__dirname, 'preload.js')
         },
-        autoHideMenuBar: true,//false for debugging (no need to change it anymore because F3 toggles the menu bar since version 0.4.4)
+        autoHideMenuBar: false,//false for debugging (no need to change it anymore because F3 toggles the menu bar since version 0.4.4)
         width: 512,
         height: 384,//+ 18,
         show: false,
