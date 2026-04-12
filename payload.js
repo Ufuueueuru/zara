@@ -73,18 +73,26 @@ setTimeout(async () => {
 		bar.style.width = "70%";
 		bar.style.outline = "5px solid red";
 	}
+	//removing all separators
+	let allGridSeparators = document.querySelectorAll(".products-category-grid-separator.product-grid-block-dynamic__spacer.product-grid-block-dynamic__spacer--grid-template-spacing-01");
+	for(let sep of allGridSeparators){
+		sep.style.height = "1%";
+	}
 	
 	
 	
-	//let allGridRows = document.querySelectorAll(".product-grid-block-dynamic__row");
-	//for(let row of allGridRows){
-	//	row.style.marginLeft = "25%";
-	//	row.style.outline = "5px solid red";
-	//}
+	let allGridRows = document.querySelectorAll(".product-grid-block-dynamic__row");
+	for(let row of allGridRows){
+		row.style.marginLeft = "15%";//half the width
+		row.style.width = "70%";
+		row.style.outline = "5px solid red";
+		row.style.marginBottom = "10";
+		document
+	}
 	
 	
 	//navigating to our changed other sites
 	//https://www.zara.com/us/en/man-new-in-l711.html
-	changeLink("https://www.zara.com/us/en/man-new-in-l711.html","https://google.com");
+	changeLink("https://www.zara.com/us/en/man-new-in-l711.html","./man-l534.html");
 	
 }, 3000);
