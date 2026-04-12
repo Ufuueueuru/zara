@@ -27,4 +27,15 @@ setTimeout(async () => {
 	//no pseudo-classes :C (all of my comments will be removed after final stuff)
 	let search = document.querySelector(".layout-header-desktop-action-search");
     search.setAttribute("style", "background-color: rgba(0,0,0,0.1); border-radius: 4px;")
+	
+	//adding the white backgrounds to the sidebars
+	let sidebarBackgroundLeft = document.createElement("div");
+	sidebarBackgroundLeft.setAttribute("class","zds-layout-desktop__left-overlay");
+	sidebarBackgroundLeft.setAttribute("aria-hidden","false");
+	let sidebarBackgroundRight = document.createElement("div");
+	sidebarBackgroundRight.setAttribute("class","zds-layout-desktop__right-overlay");
+	sidebarBackgroundRight.setAttribute("aria-hidden","false");
+	let whereSidebarShouldBe = document.querySelector(".layout");
+	whereSidebarShouldBe.children[1].insertBefore(sidebarBackgroundLeft,whereSidebarShouldBe.children[1].children[0]);
+	whereSidebarShouldBe.children[1].insertBefore(sidebarBackgroundRight,whereSidebarShouldBe.children[1].children[0]);
 }, 3000);
