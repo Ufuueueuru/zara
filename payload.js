@@ -42,6 +42,6 @@ setTimeout(async () => {
 	
 	
 	//navigating to our changed swimwear sites
-	let swimwearMen = document.querySelector("");
-	swimwearMen.setAttribute("href","");
+	//let swimwearMen = document.querySelector("");
+	//swimwearMen.setAttribute("href","");
 }, 3000);
