@@ -33,6 +33,15 @@ setTimeout(async () => {
 	let search = document.querySelector(".layout-header-desktop-action-search");
     search.setAttribute("style", "background-color: rgba(0,0,0,0.1); border-radius: 4px;");
 	search.style.outline = "5px solid red";
+
+	//adding events to simulate hover
+	search.addEventListener("mouseenter", () => {
+    search.style.backgroundColor = "rgba(0,0,0,0.15)";
+	});
+
+	search.addEventListener("mouseleave", () => {
+    search.style.backgroundColor = "rgba(0,0,0,0.1)";
+	});
 	
 	//adding the white backgrounds to the sidebars
 	let sidebarBackgroundLeft = document.createElement("div");
