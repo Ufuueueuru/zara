@@ -1,3 +1,7 @@
+function changeLink(oldURLBase, newURL) {
+	setInterval(() => {document.querySelectorAll("[href]").forEach((a) => {if (a.href.startsWith(oldURLBase)) {a.href = newURL}})}, 100);
+}
+
 setTimeout(async () => {
 	
 	//Fix the top left menu
@@ -71,7 +75,16 @@ setTimeout(async () => {
 	}
 	
 	
-	//navigating to our changed swimwear sites
-	//let swimwearMen = document.querySelector("");
-	//swimwearMen.setAttribute("href","");
+	
+	//let allGridRows = document.querySelectorAll(".product-grid-block-dynamic__row");
+	//for(let row of allGridRows){
+	//	row.style.marginLeft = "25%";
+	//	row.style.outline = "5px solid red";
+	//}
+	
+	
+	//navigating to our changed other sites
+	//https://www.zara.com/us/en/man-new-in-l711.html
+	changeLink("https://www.zara.com/us/en/man-new-in-l711.html","https://google.com");
+	
 }, 3000);
