@@ -9,6 +9,9 @@ setTimeout(async () => {
 	
 	let menu = document.querySelector(".zds-carousel-content.zds-carousel-content--vertical");
 	
+	for (let i = 0; i < 7; i++) {
+		menu.children[i].href = menu.children[i].href.splice("zara.com/us/en/")[1];
+	}
 	menu.children[0].children[0].children[0].children[0].innerHTML = "WOMEN";
 	menu.children[1].children[0].children[0].children[0].innerHTML = "MEN";
 	
