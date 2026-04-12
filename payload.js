@@ -10,7 +10,7 @@ setTimeout(async () => {
 	let menu = document.querySelector(".zds-carousel-content.zds-carousel-content--vertical");
 	
 	for (let i = 0; i < 7; i++) {
-		menu.children[i].href = menu.children[i].href.splice("zara.com/us/en/")[1];
+		menu.children[i].href = menu.children[i].href.split("zara.com/us/en/")[1];
 	}
 	menu.children[0].children[0].children[0].children[0].innerHTML = "WOMEN";
 	menu.children[1].children[0].children[0].children[0].innerHTML = "MEN";
@@ -23,4 +23,8 @@ setTimeout(async () => {
 	
 	let travelMode = menu.children[menu.children.length - 1];
 	travelMode.remove();
+
+	//no pseudo-classes :C (all of my comments will be removed after final stuff)
+	let search = document.querySelector(".layout-header-desktop-action-search");
+    search.setAttribute("style", "background-color: rgba(0,0,0,0.1); border-radius: 4px;")
 }, 3000);
