@@ -38,9 +38,13 @@ setTimeout(async () => {
 	search.addEventListener("mouseenter", () => {
     search.style.backgroundColor = "rgba(0,0,0,0.15)";
 	});
-
 	search.addEventListener("mouseleave", () => {
     search.style.backgroundColor = "rgba(0,0,0,0.1)";
+	});
+	//re-applies border to search background
+	search.addEventListener("click", () => {
+    search.style.backgroundColor = "rgba(0,0,0,0.25)";
+	search.style.outline = "5px solid red";
 	});
 	
 	//adding the white backgrounds to the sidebars
