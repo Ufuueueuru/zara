@@ -1,5 +1,5 @@
 function changeLink(oldURLBase, newURL) {
-	setInterval(() => {document.querySelectorAll("[href]").forEach((a) => {if (a.href.startsWith(oldURLBase)) {a.href = newURL}})}, 100);
+	setInterval(() => {document.querySelectorAll("[href]").forEach((a) => {if (a.href.startsWith(oldURLBase)) {a.href = newURL}})}, 50);
 }
 
 setTimeout(async () => {
@@ -90,9 +90,22 @@ setTimeout(async () => {
 		document
 	}
 	
+	//changing links to the main changed page
+	let mainPageLink = document.querySelector(".menu-header-logo__link");
+	mainPageLink.href = "./index.html";
 	
 	//navigating to our changed other sites
-	//https://www.zara.com/us/en/man-new-in-l711.html
-	changeLink("https://www.zara.com/us/en/man-new-in-l711.html","./man-l534.html");
+	changeLink("https://www.zara.com/us/en/man-l534.html","./man-l534.html");
+	changeLink("https://www.zara.com/us/en/man-beachwear-l590.html","./man-beachwear-l590.html");
+	changeLink("https://www.zara.com/us/en/man-vacation-collection-l17370.html","./man-vacation-collection-l17370.html");
+	changeLink("https://www.zara.com/us/en/man-shirts-l737.html","./man-shirts-l737.html");
+	changeLink("https://www.zara.com/us/en/man-trousers-l838.html","./man-trousers-l838.html");
+	
+	changeLink("https://www.zara.com/us/en/woman-mkt1000.html","./woman-mkt1000.html");
+	changeLink("https://www.zara.com/us/en/woman-stripes-l15863.html","./woman-stripes-l15863.html");
+	changeLink("https://www.zara.com/us/en/woman-beachwear-l1052.html","./woman-beachwear-l1052.html");
+	changeLink("https://www.zara.com/us/en/woman-shirts-l1217.html","./woman-shirts-l1217.html");
+	changeLink("https://www.zara.com/us/en/woman-trousers-l1335.html","./woman-trousers-l1335.html");
+	
 	
 }, 3000);
