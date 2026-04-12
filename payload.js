@@ -12,30 +12,37 @@ setTimeout(async () => {
 	for (let i = 0; i < 7; i++) {
 		menu.children[i].href = menu.children[i].href.split("zara.com/us/en/")[1];
 	}
+	//changing the category names
 	menu.children[0].children[0].children[0].children[0].innerHTML = "WOMEN";
+		menu.children[0].children[0].children[0].children[0].style.outline="5px solid red";//marking our changes
 	menu.children[1].children[0].children[0].children[0].innerHTML = "MEN";
-	
+		menu.children[1].children[0].children[0].children[0].style.outline="5px solid red";//marking our changes
+	//KIDS is unchanged
 	menu.children[3].children[0].children[0].children[0].innerHTML = "FURNITURE";
-	
+		menu.children[3].children[0].children[0].children[0].style.outline="5px solid red";//marking our changes
+	//BEAUTY is unchanged
 	menu.children[5].children[0].children[0].children[0].innerHTML = "DUTTI BRAND";
+		menu.children[5].children[0].children[0].children[0].style.outline="5px solid red";//marking our changes
 	menu.children[6].children[0].children[0].children[0].innerHTML = "SRPLS BRAND";
-	
-	
+		menu.children[6].children[0].children[0].children[0].style.outline="5px solid red";//marking our changes
+	//PRE-OWNED is unchanged	
 	let travelMode = menu.children[menu.children.length - 1];
 	travelMode.remove();
 
 	//no pseudo-classes :C (all of my comments will be removed after final stuff)
 	let search = document.querySelector(".layout-header-desktop-action-search");
-    search.setAttribute("style", "background-color: rgba(0,0,0,0.1); border-radius: 4px;")
+    search.setAttribute("style", "background-color: rgba(0,0,0,0.1); border-radius: 4px;");
+	search.style.outline=("5px solid red");
 	
 	//adding the white backgrounds to the sidebars
 	let sidebarBackgroundLeft = document.createElement("div");
 	sidebarBackgroundLeft.setAttribute("class","zds-layout-desktop__left-overlay");
 	sidebarBackgroundLeft.setAttribute("aria-hidden","false");
-	sidebarBackgroundLeft.setAttribute("aria-hidden","false");
+	sidebarBackgroundLeft.style.outline="5px solid red";
 	let sidebarBackgroundRight = document.createElement("div");
 	sidebarBackgroundRight.setAttribute("class","zds-layout-desktop__right-overlay");
 	sidebarBackgroundRight.setAttribute("aria-hidden","false");
+	sidebarBackgroundRight.style.outline="5px solid red";
 	let whereSidebarShouldBe = document.querySelector(".layout");
 	whereSidebarShouldBe.children[1].insertBefore(sidebarBackgroundLeft,whereSidebarShouldBe.children[1].children[0]);
 	whereSidebarShouldBe.children[1].insertBefore(sidebarBackgroundRight,whereSidebarShouldBe.children[1].children[0]);
