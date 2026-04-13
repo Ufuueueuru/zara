@@ -2,6 +2,8 @@ function changeLink(oldURLBase, newURL) {
 	setInterval(() => {document.querySelectorAll("[href]").forEach((a) => {if (a.href.startsWith(oldURLBase)) {a.href = newURL}})}, 50);
 }
 
+
+
 setTimeout(async () => {
 	
 	//Fix the top left menu
@@ -13,8 +15,8 @@ setTimeout(async () => {
 	
 	let menu = document.querySelector(".zds-carousel-content.zds-carousel-content--vertical");
 	
-	for (let i = 0; i < 7; i++) {
-		menu.children[i].href = menu.children[i].href.split("zara.com/us/en/")[1];
+	for (let index = 0; index < 7; index++) {
+		menu.children[index].href = menu.children[index].href.split("zara.com/us/en/")[1];
 	}
 	//changing the category names
 	menu.children[0].children[0].children[0].children[0].innerHTML = "WOMEN";
@@ -32,11 +34,72 @@ setTimeout(async () => {
 	//PRE-OWNED is unchanged	
 	let travelMode = menu.children[menu.children.length - 1];
 	travelMode.remove();
+	
+	//fixing the menu so it works again hopefully
+		//dot indicator
+	let dotIndicator = document.querySelector(".zds-dot-list-indicator");
+	dotIndicator.style = "transform: translateY(18px); transition-duration: 0ms;"
+		//clicking stuff? maybe? not really sure what this does
+	let mouseNavigationRegion = document.querySelector(".zds-carousel-accessibility-mouse-navigation-region.zds-carousel-accessibility-mouse-navigation-region--top");
+	mouseNavigationRegion.setAttribute("inert","");
+	mouseNavigationRegion.setAttribute("aria-disabled","true");
+
+	let subCats = document.querySelector(".zds-carousel.zds-tabs__panel-list.layout-categories__tabs-panel-list-wrapper").children[0].children[0];
+	menu.style = "gap: 6px; transform: translate3d(0px, 0px, 0px);";
+	
+
+
+	
+	
+	for(let index = 0; index < 8; index++){
+		//button part
+	menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
+	menu.children[index].setAttribute("class","zds-carousel-item zds-tabs-tab layout-categories-category layout-categories-category--level-1 layout-categories-category-level-1 link");
+	menu.children[index].setAttribute("aria-controls","tabs-10-tabpanel-".concat(menu.children[index].getAttribute("data-categoryid")));
+	menu.children[index].setAttribute("aria-selected","false");
+	menu.children[index].setAttribute("data-ecomfront-carousel-is-visible","true");
+	menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
+
+	//(menu.children[index]).addEventListener("click",o);
+				//subcategories part
+	subCats.children[index].setAttribute("id","tabs-10-tabpanel-".concat(subCats.children[index].getAttribute("data-zds-tabs-panel-value")));
+	subCats.children[index].setAttribute("aria-labelledby","tabs-10-tab-".concat(subCats.children[index].getAttribute("data-zds-tabs-panel-value")));
+	subCats.children[index].setAttribute("data-ecomfront-carousel-is-visible","false");
+	//subCats.children[index].children[1].children[0].children[0].setAttribute("style","");//remove the 'visibility:hidden'
+	
+	}
+	
+	//replacing the first one
+	menu.children[0].setAttribute("class","zds-carousel-item zds-tabs-tab layout-categories-category layout-categories-category--level-1 layout-categories-category--highlighted layout-categories-category-level-1 zds-tabs-tab--selected link");
+	menu.children[0].setAttribute("aria-selected","true");
+	subCats.children[0].setAttribute("class","zds-carousel-item zds-tabs-tab-panel layout-categories__tabs-panel layout-categories__tabs-panel-animation");
+	subCats.children[0].setAttribute("data-ecomfront-carousel-is-visible","true");
+	
 
 	//no pseudo-classes :C (all of my comments will be removed after final stuff)
 	let search = document.querySelector(".layout-header-desktop-action-search");
     search.setAttribute("style", "background-color: rgba(0,0,0,0.1); border-radius: 4px;");
 	search.style.outline = "5px solid red";
+	let searchWord = document.createElement("span");
+	searchWord.innerHTML = "Search";
+	if((!search.hasChildNodes()) || (search.children.length <= 0)){
+		search.appendChild(searchWord);
+	}
+	
+	//readding shopping bag, log in, help buttons on right side
+		//shopping as usual i see
+	let shopping = document.querySelector(".layout-actionable.layout-header-desktop-action-cart.link");
+	let shopText = document.createElement("span");
+	shopText.innerHTML = "Shopping Bag";
+	if(shopping.children[0].innerHTML != "Shopping Bag"){
+		shopping.insertBefore(shopText,shopping.children[0]);
+	}
+		//log in
+	let logging = document.querySelector(".layout-actionable.layout-desktop-account-action.layout-header-desktop-action-account.link");
+	logging.innerHTML = "LOG IN";
+		//help
+	let helping = document.querySelector(".layout-actionable.layout-header-desktop-action-help.link");
+	helping.innerHTML = "HELP";
 
 	//adding events to simulate hover
 	search.addEventListener("mouseenter", () => {
@@ -116,4 +179,5 @@ setTimeout(async () => {
 	changeLink("https://www.zara.com/us/en/kids-boy-beachwear-l201.html","./kids-boy-beachwear-l201.html");
 	
 	
+	changeLink("https://static.zara.net/stdstatic/8.12.0/js/v2/vendor-v2.js","./vendor-v2.js");
 }, 3000);
