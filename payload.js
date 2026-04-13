@@ -107,5 +107,13 @@ setTimeout(async () => {
 	changeLink("https://www.zara.com/us/en/woman-shirts-l1217.html","./woman-shirts-l1217.html");
 	changeLink("https://www.zara.com/us/en/woman-trousers-l1335.html","./woman-trousers-l1335.html");
 	
+	changeLink("https://www.zara.com/us/en/kids-mkt1.html","./kids-mkt1.html");
+	changeLink("https://www.zara.com/us/en/kids-girl-tshirts-l450.html","./kids-girl-tshirts-l450.html");
+	changeLink("https://www.zara.com/us/en/kids-girl-trousers-l439.html","./kids-girl-trousers-l439.html");
+	changeLink("https://www.zara.com/us/en/kids-girl-beachwear-l350.html","./kids-girl-beachwear-l350.html");
+	changeLink("https://www.zara.com/us/en/kids-boy-tshirts-l286.html","./kids-boy-tshirts-l286.html");
+	changeLink("https://www.zara.com/us/en/kids-boy-trousers-l274.html","./kids-boy-trousers-l274.html");
+	changeLink("https://www.zara.com/us/en/kids-boy-beachwear-l201.html","./kids-boy-beachwear-l201.html");
+	
 	
 }, 3000);
