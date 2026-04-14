@@ -23,7 +23,8 @@ setTimeout(async () => {
 		menu.children[0].children[0].children[0].children[0].style.outline = "5px solid red";//marking our changes
 	menu.children[1].children[0].children[0].children[0].innerHTML = "MEN";
 		menu.children[1].children[0].children[0].children[0].style.outline = "5px solid red";//marking our changes
-	//KIDS is unchanged
+	//KIDS' text is unchanged but we changed it in other ways
+		menu.children[2].children[0].children[0].children[0].style.outline = "5px solid red";//marking our changes
 	menu.children[3].children[0].children[0].children[0].innerHTML = "FURNITURE";
 		menu.children[3].children[0].children[0].children[0].style.outline = "5px solid red";//marking our changes
 	//BEAUTY is unchanged
@@ -38,7 +39,7 @@ setTimeout(async () => {
 	//fixing the menu so it works again hopefully
 		//dot indicator
 	let dotIndicator = document.querySelector(".zds-dot-list-indicator");
-	dotIndicator.style = "transform: translateY(18px); transition-duration: 0ms;"
+	dotIndicator.style = "transform: translateY(-18px); transition-duration: 0ms;";
 		//clicking stuff? maybe? not really sure what this does
 	let mouseNavigationRegion = document.querySelector(".zds-carousel-accessibility-mouse-navigation-region.zds-carousel-accessibility-mouse-navigation-region--top");
 	mouseNavigationRegion.setAttribute("inert","");
@@ -48,25 +49,93 @@ setTimeout(async () => {
 	menu.style = "gap: 6px; transform: translate3d(0px, 0px, 0px);";
 	
 
-
+	let womenLinks = [["ALL ITEMS - WOMEN","./woman-mkt1000.html"],
+					["SUMMER STRIPES","./woman-stripes-l15863.html"],
+					["BEACHWEAR - WOMEN","./woman-beachwear-l1052.html"],
+					["SHIRTS - WOMEN","./woman-shirts-l1217.html"],
+					["TROUSERS - WOMEN","./woman-trousers-l1335.html"]];
+	
+	let menLinks = [["ALL ITEMS - MEN","./man-l534.html"],
+					["VACATION COLLECTION","./man-vacation-collection-l17370.html"],
+					["BEACHWEAR - MEN","./man-beachwear-l590.html"],
+					["SHIRTS - MEN","./man-shirts-l737.html"],
+					["TROUSERS - MEN","./man-trousers-l838.html"]];
+	
+	let kidLinks = [["ALL ITEMS - KIDS","./kids-mkt1.html"],
+					["BEACHWEAR - GIRLS","./kids-girl-beachwear-l350.html"],
+					["BEACHWEAR - BOYS","./kids-boy-beachwear-l201.html"],
+					["SHIRTS - GIRLS","./kids-girl-tshirts-l450.html"],
+					["SHIRTS - BOYS","./kids-boy-tshirts-l286.html"],
+					["TROUSERS - GIRLS","./kids-girl-trousers-l439.html"],
+					["TROUSERS - BOYS","./kids-boy-trousers-l274.html"]];
+	
+	let arrayToUse = womenLinks;
+	clickBigCategory(womenLinks);
+	function clickBigCategory(newArray){
+		arrayToUse = newArray;
+		if(arrayToUse === womenLinks){
+			menu.children[0].children[0].children[0].children[0].style.fontSize = "125%";
+			menu.children[1].children[0].children[0].children[0].style.fontSize = "100%";
+			menu.children[2].children[0].children[0].children[0].style.fontSize = "100%";
+			
+		} else if(arrayToUse === menLinks){
+			menu.children[0].children[0].children[0].children[0].style.fontSize = "100%";
+			menu.children[1].children[0].children[0].children[0].style.fontSize = "125%";
+			menu.children[2].children[0].children[0].children[0].style.fontSize = "100%";
+		} else if(arrayToUse === kidLinks){
+			menu.children[0].children[0].children[0].children[0].style.fontSize = "100%";
+			menu.children[1].children[0].children[0].children[0].style.fontSize = "100%";
+			menu.children[2].children[0].children[0].children[0].style.fontSize = "125%";
+			
+		}
+		for(let index2 = 0; index2 < 8; index2++){
+			let thisButton = subCats.children[0].children[0].children[index2*2].children[0];
+			if((thisButton === undefined) || (!(thisButton.hasChildNodes())) || (thisButton.children.length <= 1)){
+				//if there aren't at least two children, don't do anything
+			} else {
+				if((arrayToUse == undefined) || (arrayToUse[index2] == undefined)){
+					thisButton.children[1].children[0].innerHTML = "";
+				} else {
+					thisButton.children[1].children[0].innerHTML = arrayToUse[index2][0];
+					thisButton.setAttribute("href",arrayToUse[index2][1]);
+				}
+			}
+		}
+	}
+	function clickWomen(){
+		clickBigCategory(womenLinks);
+	}
+	function clickMen(){
+		clickBigCategory(menLinks);
+	}
+	function clickKid(){
+		clickBigCategory(kidLinks);
+	}
+	
+	menu.children[0].addEventListener("click",clickWomen);
+	menu.children[0].removeAttribute("href");
+	menu.children[1].addEventListener("click",clickMen);
+	menu.children[1].removeAttribute("href");
+	menu.children[2].addEventListener("click",clickKid);
+	menu.children[2].removeAttribute("href");
+	clickWomen();
 	
 	
 	for(let index = 0; index < 8; index++){
-		//button part
-	menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
-	menu.children[index].setAttribute("class","zds-carousel-item zds-tabs-tab layout-categories-category layout-categories-category--level-1 layout-categories-category-level-1 link");
-	menu.children[index].setAttribute("aria-controls","tabs-10-tabpanel-".concat(menu.children[index].getAttribute("data-categoryid")));
-	menu.children[index].setAttribute("aria-selected","false");
-	menu.children[index].setAttribute("data-ecomfront-carousel-is-visible","true");
-	menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
+			//button part
+		menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
+		menu.children[index].setAttribute("class","zds-carousel-item zds-tabs-tab layout-categories-category layout-categories-category--level-1 layout-categories-category-level-1 link");
+		menu.children[index].setAttribute("aria-controls","tabs-10-tabpanel-".concat(menu.children[index].getAttribute("data-categoryid")));
+		menu.children[index].setAttribute("aria-selected","false");
+		menu.children[index].setAttribute("data-ecomfront-carousel-is-visible","true");
+		menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
 
-	//(menu.children[index]).addEventListener("click",o);
-				//subcategories part
-	subCats.children[index].setAttribute("id","tabs-10-tabpanel-".concat(subCats.children[index].getAttribute("data-zds-tabs-panel-value")));
-	subCats.children[index].setAttribute("aria-labelledby","tabs-10-tab-".concat(subCats.children[index].getAttribute("data-zds-tabs-panel-value")));
-	subCats.children[index].setAttribute("data-ecomfront-carousel-is-visible","false");
-	//subCats.children[index].children[1].children[0].children[0].setAttribute("style","");//remove the 'visibility:hidden'
-	
+		//(menu.children[index]).addEventListener("click",o);
+					//subcategories part
+		subCats.children[index].setAttribute("id","tabs-10-tabpanel-".concat(subCats.children[index].getAttribute("data-zds-tabs-panel-value")));
+		subCats.children[index].setAttribute("aria-labelledby","tabs-10-tab-".concat(subCats.children[index].getAttribute("data-zds-tabs-panel-value")));
+		subCats.children[index].setAttribute("data-ecomfront-carousel-is-visible","false");
+		//subCats.children[index].children[1].children[0].children[0].setAttribute("style","");//remove the 'visibility:hidden'
 	}
 	
 	//replacing the first one
@@ -74,6 +143,9 @@ setTimeout(async () => {
 	menu.children[0].setAttribute("aria-selected","true");
 	subCats.children[0].setAttribute("class","zds-carousel-item zds-tabs-tab-panel layout-categories__tabs-panel layout-categories__tabs-panel-animation");
 	subCats.children[0].setAttribute("data-ecomfront-carousel-is-visible","true");
+	
+	
+	
 	
 
 	//no pseudo-classes :C (all of my comments will be removed after final stuff)
