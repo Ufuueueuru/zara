@@ -122,6 +122,14 @@ setTimeout(async () => {
 	clickWomen();
 	
 	
+	menu.children[3].setAttribute("href","https://www.zara.com/us/en/home-mkt2085.html");
+	menu.children[4].setAttribute("href","https://www.zara.com/us/en/woman-beauty-mkt1414.html");
+	menu.children[5].setAttribute("href","https://www.zara.com/us/en/massimo-dutti-mkt5753.html");
+	menu.children[6].setAttribute("href","https://www.zara.com/us/en/srpls-mkt1875.html");
+	menu.children[7].setAttribute("href","https://www.zara.com/us/en/preowned-mkt5794.html");
+	document.querySelector(".zds-carousel-accessibility-mouse-navigation-region.zds-carousel-accessibility-mouse-navigation-region--bottom").style.height = "0%";
+	
+	
 	for(let index = 0; index < 8; index++){
 			//button part
 		menu.children[index].setAttribute("id","tabs-10-tab-".concat(menu.children[index].getAttribute("data-categoryid")));
