@@ -95,6 +95,7 @@ setTimeout(async () => {
 			} else {
 				if((arrayToUse == undefined) || (arrayToUse[index2] == undefined)){
 					thisButton.children[1].children[0].innerHTML = "";
+					thisButton.setAttribute("href","");
 				} else {
 					thisButton.children[1].children[0].innerHTML = arrayToUse[index2][0];
 					thisButton.setAttribute("href",arrayToUse[index2][1]);
